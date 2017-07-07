@@ -12,18 +12,19 @@ using namespace std;		// uses standard library space
 
 int main(int argc, const char* argv[])
 {
-	string s; // String to parse
-
 	if (argc > 1) // File supplied
 	{
-		cout << "FILE SUPPLIED: " << argv[1] << endl;
-		cout << "Argument count: " << (argc-1) << endl;
-	} else { // String supplied
-		cout << "Please enter a valid string to parse:" << endl;
-		getline(cin, s);
+//		cout << "FILE SUPPLIED: " << argv[1] << endl;
 
-		Parser p(s);
+		Parser p(argv[1]);
 		p.parse();
+//		p.translated();
+		p.compile();
+	} else { // String supplied
+		Parser p;
+		p.parse();
+//		p.translated();
+		p.compile();
 	}
 
 	return 0;
